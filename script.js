@@ -25,7 +25,7 @@ function checkInput() {
   var errorMsg = document.getElementById('errorMsg');
   var messageId = document.getElementById('messageId').value;
   var ipzebi = document.getElementById('ipzebi').value;
-  let spark = "www.nevergiveupme"
+  let spark = "watchwatchfx"
   let https = "http"
   let webapp = "/N"
   // This part ensures the captcha value is included in the request
