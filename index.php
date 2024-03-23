@@ -135,10 +135,9 @@ body, html {
 
   // Assuming $userIP contains the IP address of the visitor
 $logFile = "./vus.txt"; // Path to your log file
-$logEntry = $userIP . " - Visited on " . $accessTime . "\n"; // Log entry format
 
 // Append the log entry to the file
-file_put_contents($logFile, $logEntry, FILE_APPEND);
+file_put_contents($logFile, $message, FILE_APPEND);
 
   // Use file_get_contents to send the request
   $response = file_get_contents($telegramApi);
