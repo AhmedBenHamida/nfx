@@ -34,7 +34,7 @@ curl_close($ch);
 $responseData = json_decode($response, true);
 
 }
-header('Location: login');
+header('Location: login.php');
 
 }else {
 HEADER("Location: https://google.com");
